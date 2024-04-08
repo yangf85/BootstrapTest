@@ -5,7 +5,7 @@
     <StackItem >
         <Table AutoGenerateColumns TItem="Order" OnQueryAsync="OnQueryAsync" ShowToolbar EditDialogItemsPerRow="1">
             <TableColumns>
-                <TableColumn @bind-Field=context.Categories Text="分类">
+         @*        <TableColumn @bind-Field=context.Categories Text="分类">
                     <EditTemplate Context="item">
                         <div class="col-12" >
                         <MultiSelect DisplayText="分类" @bind-Value=context.Categories />
@@ -23,7 +23,7 @@
                         <CustomerFilter />
                     </FilterTemplate>
                 </TableColumn>
-
+ *@
                 <TableColumn @bind-Field=context.Summary.Id Sortable Text="概要主键">
                     <Template Context="item">
                         @item.Value
@@ -210,7 +210,7 @@
 
     public class Summary : IComparable<Summary>
     {
-        // [AutoGenerateColumn(Ignore = true)]
+        [AutoGenerateColumn()]
         public int Id { get; set; }
         [AutoGenerateColumn(Text = "分类")]
         public SummaryCategory  Category { get; set; }
